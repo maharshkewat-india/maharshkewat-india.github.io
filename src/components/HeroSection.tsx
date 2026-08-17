@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
+import Image from 'next/image';
 import { profile } from '@/data/profile';
 import { SocialLinks } from '@/components/SocialLinks';
 
@@ -32,15 +33,17 @@ export default function HeroSection() {
           </motion.div>
           <motion.div {...fadeUp(0.5, reduceMotion)} className="mt-8"><SocialLinks /></motion.div>
         </div>
-        <motion.div initial={reduceMotion ? false : { opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.65, delay: 0.22 }} className="relative mx-auto w-full max-w-md lg:justify-self-end">
-          <div className="absolute -inset-2 rounded-2xl border border-cyan-300/15 bg-cyan-300/[0.025]" aria-hidden="true" />
-          <div className="relative overflow-hidden rounded-xl border border-cyan-300/20 bg-[#08111b]/90 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-slate-400"><span>Security profile</span><span className="flex items-center gap-2 text-emerald-200"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />Learning active</span></div>
-            <div className="space-y-5 p-6">
-              {[['PRIMARY', 'Cybersecurity / SOC'], ['FOCUS', 'Network Security · IAM'], ['ENVIRONMENT', 'Cloud · AI · Digital Forensics']].map(([label, value]) => <div key={label} className="border-l border-cyan-300/30 pl-4"><p className="font-mono text-[0.63rem] font-semibold tracking-[0.16em] text-slate-500">{label}</p><p className="mt-1 text-sm font-medium text-slate-200">{value}</p></div>)}
-              <div className="mt-6 grid grid-cols-3 gap-2 border-t border-white/10 pt-5">{['Monitor', 'Analyze', 'Learn'].map((label) => <div key={label} className="rounded border border-white/10 bg-white/[0.03] px-2 py-3 text-center font-mono text-[0.62rem] uppercase tracking-[0.09em] text-cyan-100">{label}</div>)}</div>
-            </div>
-          </div>
+        <motion.div initial={reduceMotion ? false : { opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.65, delay: 0.22 }} className="relative mx-auto w-full max-w-sm lg:max-w-md lg:justify-self-end">
+          <div className="absolute -inset-2 rounded-full border-2 border-cyan-300/20" />
+          <div className="absolute -inset-6 rounded-full border border-cyan-300/10" />
+          <Image
+            src={profile.profilePhoto || '/profile.jpg'}
+            alt={`Profile photo of ${profile.name}`}
+            width={500}
+            height={500}
+            className="relative aspect-square rounded-full border-2 border-cyan-300/30 bg-slate-900 object-cover shadow-2xl shadow-black/40"
+            priority
+          />
         </motion.div>
       </div>
     </section>
