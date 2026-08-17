@@ -1,0 +1,6 @@
+import SectionHeading from '@/components/SectionHeading';
+import { education } from '@/data/education';
+
+export default function Education() {
+  return <section id="education" className="scroll-mt-20 border-y border-white/10 bg-white/[0.015] py-20 sm:py-28" aria-labelledby="education-title"><div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8"><div><SectionHeading eyebrow="Education" title={education.degree} /><p id="education-title" className="mt-5 text-lg font-medium text-cyan-100">{education.institution}</p><p className="mt-2 text-slate-400">{education.location}</p><p className="mt-6 max-w-xl leading-7 text-slate-400">Academic focus supports an evolving cybersecurity learning path across defensive security, identity, cloud and AI-related systems.</p></div><div className="rounded-xl border border-cyan-300/20 bg-[#08111b] p-6"><p className="font-mono text-xs uppercase tracking-[0.18em] text-cyan-300">Focus areas</p><div className="mt-5 grid gap-3 sm:grid-cols-2">{education.focusAreas.map((area, index) => <div key={area} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.025] p-3 text-sm text-slate-200"><span className="font-mono text-xs text-emerald-300">0{index + 1}</span>{area}</div>)}</div></div></div></section>;
+}

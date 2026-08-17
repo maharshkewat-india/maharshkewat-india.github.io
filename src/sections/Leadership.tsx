@@ -1,0 +1,6 @@
+import SectionHeading from '@/components/SectionHeading';
+import { leadership } from '@/data/content';
+
+export default function Leadership() {
+  return <section id="leadership" className="scroll-mt-20 py-20 sm:py-28" aria-labelledby="leadership-title"><div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8"><div><SectionHeading eyebrow="Leadership & community" title="Community participation." /><p id="leadership-title" className="mt-5 leading-7 text-slate-400">A concise record of a verified ambassador role and its related areas.</p></div><article className="rounded-xl border border-white/10 bg-white/[0.025] p-6"><p className="font-mono text-xs uppercase tracking-[0.18em] text-cyan-300">Persevex</p><h3 className="mt-4 text-xl font-semibold text-white">{leadership.role}</h3><p className="mt-5 text-sm text-slate-400">Related areas</p><div className="mt-3 flex flex-wrap gap-2">{leadership.areas.map((area) => <span key={area} className="rounded-md border border-emerald-300/25 bg-emerald-300/[0.04] px-3 py-1.5 text-sm text-emerald-100">{area}</span>)}</div></article></div></section>;
+}

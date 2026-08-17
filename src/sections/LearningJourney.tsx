@@ -1,0 +1,6 @@
+import SectionHeading from '@/components/SectionHeading';
+import { learningStages } from '@/data/content';
+
+export default function LearningJourney() {
+  return <section id="learning-journey" className="scroll-mt-20 py-20 sm:py-28" aria-labelledby="learning-title"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><SectionHeading eyebrow="Learning journey" title="A cybersecurity-first progression." description="An evolving map of concepts and project directions—not a claim of completed expertise." /><p id="learning-title" className="sr-only">Learning journey</p><ol className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">{learningStages.map((stage, index) => <li key={stage.stage} className="relative rounded-xl border border-white/10 bg-white/[0.025] p-5"><span className="font-mono text-xs text-emerald-300">{String(index + 1).padStart(2, '0')}</span><h3 className="mt-4 text-lg font-semibold text-white">{stage.stage}</h3><ul className="mt-4 space-y-2 text-sm text-slate-400">{stage.topics.map((topic) => <li key={topic} className="flex gap-2"><span className="text-cyan-300">›</span>{topic}</li>)}</ul></li>)}</ol></div></section>;
+}
