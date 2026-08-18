@@ -4,10 +4,6 @@ const path = require('path')
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  // Enable experimental app directory
-  experimental: {
-    appDir: true
-  },
   // Enable TypeScript path alias
   webpack: (config) => {
     config.resolve.alias = {
