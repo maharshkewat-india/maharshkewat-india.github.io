@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { profile } from '@/data/profile';
 import { SocialLinks } from '@/components/SocialLinks';
@@ -34,9 +35,14 @@ export default function HeroSection() {
         <motion.div initial={reduceMotion ? false : { opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.65, delay: 0.22 }} className="relative mx-auto w-full max-w-sm lg:max-w-md lg:justify-self-end">
           <div className="absolute -inset-2 rounded-full border-2 border-cyan-300/20" />
           <div className="absolute -inset-6 rounded-full border border-cyan-300/10" />
-          <div className="relative flex aspect-square items-center justify-center rounded-full border-2 border-cyan-300/30 bg-slate-900 shadow-2xl shadow-black/40" role="img" aria-label={`${profile.name} initials`}>
-            <span className="font-mono text-7xl font-bold tracking-[0.08em] text-cyan-200 sm:text-8xl">MK</span>
-          </div>
+          <Image
+            src={profile.profilePhoto}
+            alt={`Profile photo of ${profile.name}`}
+            width={500}
+            height={500}
+            className="relative aspect-square rounded-full border-2 border-cyan-300/30 bg-slate-900 object-cover shadow-2xl shadow-black/40"
+            priority
+          />
         </motion.div>
       </div>
     </section>
