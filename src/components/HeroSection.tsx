@@ -40,7 +40,7 @@ export default function HeroSection() {
             alt={`Profile photo of ${profile.name}`}
             width={500}
             height={500}
-            className="relative aspect-square rounded-full border-2 border-cyan-300/30 bg-slate-900 object-cover shadow-2xl shadow-black/40"
+            className="relative aspect-square rounded-full border-2 border-cyan-300/30 bg-slate-900 object-cover object-top shadow-2xl shadow-black/40"
             priority
           />
         </motion.div>
