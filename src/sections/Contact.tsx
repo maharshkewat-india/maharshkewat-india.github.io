@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import SectionHeading from '@/components/SectionHeading';
-import { SocialLinks } from '@/components/Navbar';
+import { SocialLinks } from '@/components/SocialLinks';
 import { profile } from '@/data/profile';
 
 export default function ContactSection() {

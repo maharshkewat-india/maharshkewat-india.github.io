@@ -1,3 +1,5 @@
+import { Education, Certification, Skill, Project, Learning } from './types';
+
 export interface Profile {
   name: string;
   title: string;

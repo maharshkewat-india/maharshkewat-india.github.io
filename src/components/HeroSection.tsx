@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import Image from 'next/image';
 import { profile } from '@/data/profile';
 import { SocialLinks } from '@/components/SocialLinks';
 
@@ -29,21 +28,15 @@ export default function HeroSection() {
           <motion.p {...fadeUp(0.34, reduceMotion)} className="mt-5 max-w-2xl text-base leading-7 text-slate-400">{profile.description}</motion.p>
           <motion.div {...fadeUp(0.42, reduceMotion)} className="mt-8 flex flex-wrap gap-3">
             <Link href="#projects" className="rounded-md bg-cyan-300 px-5 py-3 text-sm font-bold text-[#061018] transition hover:bg-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06080d]">Explore Projects <span aria-hidden="true">→</span></Link>
-            <a href="/Maharsh_Kewat_Resume.pdf" target="_blank" rel="noopener noreferrer" className="rounded-md border border-slate-600/70 px-5 py-3 text-sm font-semibold text-slate-300 transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">View Resume</a>
           </motion.div>
           <motion.div {...fadeUp(0.5, reduceMotion)} className="mt-8"><SocialLinks /></motion.div>
         </div>
         <motion.div initial={reduceMotion ? false : { opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.65, delay: 0.22 }} className="relative mx-auto w-full max-w-sm lg:max-w-md lg:justify-self-end">
           <div className="absolute -inset-2 rounded-full border-2 border-cyan-300/20" />
           <div className="absolute -inset-6 rounded-full border border-cyan-300/10" />
-          <Image
-            src={profile.profilePhoto || '/profile.jpg'}
-            alt={`Profile photo of ${profile.name}`}
-            width={500}
-            height={500}
-            className="relative aspect-square rounded-full border-2 border-cyan-300/30 bg-slate-900 object-cover shadow-2xl shadow-black/40"
-            priority
-          />
+          <div className="relative flex aspect-square items-center justify-center rounded-full border-2 border-cyan-300/30 bg-slate-900 shadow-2xl shadow-black/40" role="img" aria-label={`${profile.name} initials`}>
+            <span className="font-mono text-7xl font-bold tracking-[0.08em] text-cyan-200 sm:text-8xl">MK</span>
+          </div>
         </motion.div>
       </div>
     </section>

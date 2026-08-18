@@ -6,7 +6,6 @@ export const profile = {
   location: 'Satna, Madhya Pradesh',
   email: 'maharshk215@gmail.com',
   whatsapp: '9685920827', // Use your number without country code
-  profilePhoto: '/profile.jpg', // Path to your photo in the `public` folder
   github: 'https://github.com/maharshkewat-india',
   linkedin: 'https://www.linkedin.com/in/maharsh-kewat01/',
   instagram: 'https://www.instagram.com/maharshkewat',
