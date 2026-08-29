@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { profile } from '@/data/profile';
 import { SocialLinks } from '@/components/SocialLinks';
+import ResumeButton from '@/components/ResumeButton';
 
 const fadeUp = (delay: number, reduced: boolean | null) => ({
   initial: reduced ? false : { opacity: 0, y: 18 },
@@ -29,6 +30,7 @@ export default function HeroSection() {
           <motion.p {...fadeUp(0.34, reduceMotion)} className="mt-5 max-w-2xl text-base leading-7 text-slate-400">{profile.description}</motion.p>
           <motion.div {...fadeUp(0.42, reduceMotion)} className="mt-8 flex flex-wrap gap-3">
             <Link href="#projects" className="rounded-md bg-cyan-300 px-5 py-3 text-sm font-bold text-[#061018] transition hover:bg-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06080d]">Explore Projects <span aria-hidden="true">→</span></Link>
+            <ResumeButton variant="secondary" label="Download Resume" />
           </motion.div>
           <motion.div {...fadeUp(0.5, reduceMotion)} className="mt-8"><SocialLinks /></motion.div>
         </div>

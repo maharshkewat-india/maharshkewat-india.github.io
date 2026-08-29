@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import SectionHeading from '@/components/SectionHeading';
 import { SocialLinks } from '@/components/SocialLinks';
+import ResumeButton from '@/components/ResumeButton';
 import { profile } from '@/data/profile';
 
 export default function ContactSection() {
@@ -139,6 +140,19 @@ export default function ContactSection() {
             </div>
             <div className="mt-8">
               <SocialLinks />
+            </div>
+
+            {/* Download Resume */}
+            <div className="mt-8 rounded-lg border border-cyan-300/20 bg-cyan-300/[0.04] p-4">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.15em] text-cyan-300">
+                Resume
+              </p>
+              <p className="mt-2 text-sm text-slate-300">
+                Grab a PDF copy of my resume to keep for later.
+              </p>
+              <div className="mt-4">
+                <ResumeButton label="Download Resume (PDF)" />
+              </div>
             </div>
           </div>
         </div>

@@ -20,5 +20,6 @@ export const navItems = [
   { href: '#skills', label: 'SKILLS' },
   { href: '#projects', label: 'PROJECTS' },
   { href: '#experience', label: 'EXPERIENCE' },
+  { href: '#resume', label: 'RESUME' },
   { href: '#contact', label: 'CONTACT' },
 ];

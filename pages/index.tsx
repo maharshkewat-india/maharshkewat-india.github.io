@@ -10,6 +10,7 @@ import GitHub from '@/sections/GitHub';
 import Leadership from '@/sections/Leadership';
 import LearningJourney from '@/sections/LearningJourney';
 import { ProjectsSection } from '@/sections/Projects';
+import Resume from '@/sections/Resume';
 import SecurityFocus from '@/sections/SecurityFocus';
 import {
   AISecurity,
@@ -45,6 +46,7 @@ export default function Home() {
         <IAM />
         <SkillsSection />
         <VirtualExperience />
+        <Resume />
         <Certifications />
         <Education />
         <Leadership />
