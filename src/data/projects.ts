@@ -77,7 +77,7 @@ export const projects: Project[] = [
       'Repository-described threat-detection mode',
     ],
     github: 'https://github.com/maharshkewat-india/N-ONE-No-One-Escapes',
-    featured: false,
+    featured: true,
   },
   {
     slug: 'jpmorgan-quantitative-research',
@@ -92,7 +92,7 @@ export const projects: Project[] = [
       'FIFO-based bucket optimization',
     ],
     github: 'https://github.com/maharshkewat-india/JPMorgan',
-    featured: false,
+    featured: true,
   },
   {
     slug: 'chat-bot',
@@ -102,6 +102,6 @@ export const projects: Project[] = [
     technologies: ['Python', 'scikit-learn', 'Tkinter'],
     highlights: ['Machine-learning chatbot experiment', 'Tkinter graphical interface'],
     github: 'https://github.com/maharshkewat-india/chat-bot',
-    featured: false,
+    featured: true,
   },
 ];
