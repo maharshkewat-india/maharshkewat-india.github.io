@@ -1,8 +1,4 @@
-export type ProjectCategory =
-  | 'Cybersecurity'
-  | 'AI & Computer Vision'
-  | 'Data Analysis'
-  | 'Machine Learning';
+export type ProjectCategory = 'Cybersecurity';
 
 export interface Project {
   slug: string;
@@ -52,71 +48,16 @@ export const projects: Project[] = [
   {
     slug: 'sentinel-ai',
     title: 'SENTINEL-AI',
-    category: 'AI & Computer Vision',
+    category: 'Cybersecurity',
     description:
-      'An AI-powered smart surveillance platform with real-time detection and emergency alerts. Built with YOLO26 for object detection, FastAPI for the backend and React for the UI.',
+      'An AI-powered smart surveillance platform built for security use cases with real-time detection and emergency alerts. Built with YOLO26 for object detection, FastAPI for the backend and React for the UI.',
     technologies: ['YOLO26', 'FastAPI', 'React', 'Docker', 'PostgreSQL'],
     highlights: [
-      'Real-time object detection and emergency alerting',
+      'Real-time object detection and emergency alerting for security monitoring',
       'Dockerized deployment with PostgreSQL persistence',
       'Modern full-stack architecture (FastAPI + React)',
     ],
     github: 'https://github.com/maharshkewat-india/SENTINEL-AI',
     featured: true,
-  },
-  {
-    slug: 'digital-forensics-framework',
-    title: 'Digital Forensics Framework',
-    category: 'Cybersecurity',
-    description:
-      'A Windows-friendly Python project for organizing forensic evidence collection and documentation workflows.',
-    technologies: ['Python'],
-    highlights: [
-      'Case registration and evidence logging',
-      'MD5 and SHA-256 file-hash generation',
-      'Chain-of-custody tracking and interactive reporting',
-    ],
-    github: 'https://github.com/maharshkewat-india/Digital-Forensics-Framework',
-    featured: false,
-  },
-  {
-    slug: 'n-one-no-one-escapes',
-    title: 'N-ONE — No One Escapes',
-    category: 'AI & Computer Vision',
-    description:
-      'An AI surveillance and threat-tracking project built with Python, Streamlit and OpenCV.',
-    technologies: ['Python', 'Streamlit', 'OpenCV', 'DeepFace'],
-    highlights: [
-      'Repository-described person-tracking mode',
-      'Repository-described attendance mode',
-      'Repository-described threat-detection mode',
-    ],
-    github: 'https://github.com/maharshkewat-india/N-ONE-No-One-Escapes',
-    featured: false,
-  },
-  {
-    slug: 'jpmorgan-quantitative-research',
-    title: 'J.P. Morgan Quantitative Research',
-    category: 'Data Analysis',
-    description:
-      'A Python financial analytics project exploring natural-gas price analysis, pricing models and risk assessment.',
-    technologies: ['Python'],
-    highlights: [
-      'Natural-gas price analysis',
-      'Pricing-model development and risk assessment',
-      'FIFO-based bucket optimization',
-    ],
-    github: 'https://github.com/maharshkewat-india/JPMorgan',
-    featured: false,
-  },
-  {
-    slug: 'chat-bot',
-    title: 'Chat Bot',
-    category: 'Machine Learning',
-    description: 'A simple chatbot project trained with scikit-learn and presented through a Tkinter interface.',
-    technologies: ['Python', 'scikit-learn', 'Tkinter'],
-    highlights: ['Machine-learning chatbot experiment', 'Tkinter graphical interface'],
-    github: 'https://github.com/maharshkewat-india/chat-bot',
-    featured: false,
   },
 ];
