@@ -20,6 +20,7 @@ export const navItems = [
   { href: '#skills', label: 'SKILLS' },
   { href: '#projects', label: 'PROJECTS' },
   { href: '#experience', label: 'EXPERIENCE' },
+  { href: '#certifications', label: 'CERTIFICATIONS' },
   { href: '#resume', label: 'RESUME' },
   { href: '#contact', label: 'CONTACT' },
 ];
