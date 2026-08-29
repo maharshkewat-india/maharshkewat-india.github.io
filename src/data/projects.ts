@@ -1,4 +1,8 @@
-export type ProjectCategory = 'Cybersecurity';
+export type ProjectCategory =
+  | 'Cybersecurity'
+  | 'AI & Computer Vision'
+  | 'Data Analysis'
+  | 'Machine Learning';
 
 export interface Project {
   slug: string;
@@ -59,5 +63,45 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/maharshkewat-india/SENTINEL-AI',
     featured: true,
+  },
+  {
+    slug: 'n-one-no-one-escapes',
+    title: 'N-ONE — No One Escapes',
+    category: 'AI & Computer Vision',
+    description:
+      'An AI surveillance and threat-tracking project built with Python, Streamlit and OpenCV.',
+    technologies: ['Python', 'Streamlit', 'OpenCV', 'DeepFace'],
+    highlights: [
+      'Repository-described person-tracking mode',
+      'Repository-described attendance mode',
+      'Repository-described threat-detection mode',
+    ],
+    github: 'https://github.com/maharshkewat-india/N-ONE-No-One-Escapes',
+    featured: false,
+  },
+  {
+    slug: 'jpmorgan-quantitative-research',
+    title: 'J.P. Morgan Quantitative Research',
+    category: 'Data Analysis',
+    description:
+      'A Python financial analytics project exploring natural-gas price analysis, pricing models and risk assessment.',
+    technologies: ['Python'],
+    highlights: [
+      'Natural-gas price analysis',
+      'Pricing-model development and risk assessment',
+      'FIFO-based bucket optimization',
+    ],
+    github: 'https://github.com/maharshkewat-india/JPMorgan',
+    featured: false,
+  },
+  {
+    slug: 'chat-bot',
+    title: 'Chat Bot',
+    category: 'Machine Learning',
+    description: 'A simple chatbot project trained with scikit-learn and presented through a Tkinter interface.',
+    technologies: ['Python', 'scikit-learn', 'Tkinter'],
+    highlights: ['Machine-learning chatbot experiment', 'Tkinter graphical interface'],
+    github: 'https://github.com/maharshkewat-india/chat-bot',
+    featured: false,
   },
 ];
