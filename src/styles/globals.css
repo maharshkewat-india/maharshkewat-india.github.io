@@ -5,3 +5,31 @@
 body {
   @apply bg-[#06080D] text-slate-300;
 }
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/10;
+  }
+  .glass-strong {
+    @apply bg-white/[0.07] backdrop-blur-2xl border border-white/15;
+  }
+  .glass-card {
+    @apply rounded-xl border border-white/10 bg-white/[0.025] shadow-lg shadow-black/10 transition hover:border-cyan-300/30 hover:bg-white/[0.045];
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-cyan-200 via-cyan-300 to-emerald-300 bg-clip-text text-transparent;
+  }
+  .section-py {
+    @apply py-20 sm:py-28;
+  }
+  .container-max {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06080d];
+  }
+  .shimmer-bg {
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+}

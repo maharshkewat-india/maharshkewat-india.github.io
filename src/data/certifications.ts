@@ -17,23 +17,29 @@ export const learningRecords: LearningRecord[] = [
     topics: ['Security', 'Compliance', 'Identity', 'Azure AD', 'Microsoft 365'],
     url: 'https://learn.microsoft.com/en-us/users/maharshkewat/achievements/wzrmpc9n',
   },
-  // NOTE: The Skill India URLs below are temporary and may expire.
-  // It is recommended to find permanent links if possible.
+  {
+    title: 'Cybersecurity',
+    provider: 'Skill India',
+    kind: 'Certificate',
+    category: 'Cybersecurity',
+    topics: ['Cybersecurity', 'Security Fundamentals', 'Risk Awareness'],
+    url: '/cybersecurity.pdf',
+  },
   {
     title: 'Information Security Analyst',
     provider: 'Skill India',
-    kind: 'Certification',
+    kind: 'Certificate',
     category: 'Cybersecurity',
     topics: ['Information Security', 'Security Analysis', 'Risk Management'],
-    url: 'https://skill-india-dev.s3.ap-south-1.amazonaws.com/certificate_generic/uploaded_elements/2024082936406350/certificate_02da6be6-46a2-4f11-817b-2ed6c7cbc4b5.pdf',
+    url: '/information%20security.pdf',
   },
   {
     title: 'Network Security Engineer',
     provider: 'Skill India',
-    kind: 'Certification',
+    kind: 'Certificate',
     category: 'Cybersecurity',
     topics: ['Network Security', 'Firewalls', 'VPNs', 'Intrusion Detection'],
-    url: 'https://skill-india-dev.s3.ap-south-1.amazonaws.com/certificate_generic/uploaded_elements/2024082936406350/certificate_aea0e014-9bff-40e4-b2d2-1013f11aa122.pdf',
+    url: '/network%20security%20certificate.pdf',
   },
   {
     title: 'Describe the concepts of security, compliance, and identity',
