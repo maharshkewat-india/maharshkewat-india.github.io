@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import SectionHeading from '@/components/SectionHeading';
 import { skillCategories, skillEvidence } from '@/data/skills';
 
@@ -12,6 +13,8 @@ function ExternalOrInternalLink({ href, children }: { href: string; children: Re
 
 export default function SkillsSection() {
   const reduceMotion = useReducedMotion();
+  const [showMore, setShowMore] = useState(false);
+  const visibleCategories = showMore ? skillCategories : skillCategories.slice(0, 2);
 
   return (
     <section id="skills" className="scroll-mt-20 section-py" aria-labelledby="skills-title">
@@ -25,10 +28,14 @@ export default function SkillsSection() {
 
         {/* Skill categories */}
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {skillCategories.map((category, catIndex) => (
+          <AnimatePresence initial={false} mode="popLayout">
+          {visibleCategories.map((category, catIndex) => (
             <motion.article
               key={category.name}
-              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              layout={!reduceMotion}
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.12 }}
               transition={{ duration: 0.4, delay: catIndex * 0.06 }}
@@ -46,10 +53,12 @@ export default function SkillsSection() {
               </div>
             </motion.article>
           ))}
+          </AnimatePresence>
         </div>
 
         {/* Skill evidence */}
-        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+        <AnimatePresence initial={false}>
+        {showMore && <motion.div initial={reduceMotion ? false : { opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={reduceMotion ? undefined : { opacity: 0, height: 0 }} className="mt-10 grid gap-4 overflow-hidden lg:grid-cols-2">
           {skillEvidence.map((item, evIndex) => (
             <motion.article
               key={item.skill}
@@ -75,7 +84,9 @@ export default function SkillsSection() {
               </ul>
             </motion.article>
           ))}
-        </div>
+        </motion.div>}
+        </AnimatePresence>
+        <div className="mt-8 flex justify-center"><button type="button" onClick={() => setShowMore((current) => !current)} className="rounded-md border border-cyan-300/35 px-4 py-2.5 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">{showMore ? 'Show Less' : 'View More Skills'}</button></div>
       </div>
     </section>
   );

@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{profile.name} - Cybersecurity Portfolio</title>
+        <title>{`${profile.name} - Cybersecurity Portfolio`}</title>
         <meta
           name="description"
           content={profile.description}
@@ -38,7 +38,7 @@ export default function Home() {
         <Hero />
         <About />
         <SecurityFocus />
-        <ProjectsSection featuredOnly />
+        <ProjectsSection />
         <SOCJourney />
         <DigitalForensics />
         <AISecurity />

@@ -16,7 +16,7 @@ export function SocialLinks({ compact = false }: { compact?: boolean }) {
   const iconSize = compact ? 'h-5 w-5' : 'h-6 w-6';
 
   return (
-    <div className={`flex items-center ${compact ? 'gap-4' : 'gap-x-6'}`}>
+    <div className={`flex flex-wrap items-center ${compact ? 'gap-4' : 'gap-x-6 gap-y-3'}`}>
       {socialPlatforms.map((platform) => (
         <a
           key={platform.name}
