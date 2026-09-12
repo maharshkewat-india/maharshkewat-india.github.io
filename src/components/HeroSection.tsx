@@ -70,9 +70,9 @@ export default function HeroSection() {
           <motion.h1
             {...fadeUp(0.1, reduceMotion)}
             id="hero-title"
-            className="max-w-[90ch] text-4xl font-bold leading-[0.98] tracking-tight text-white sm:text-6xl xl:text-[4.5rem] font-display"
+            className="max-w-[90ch] whitespace-nowrap text-3xl font-bold leading-none tracking-[-0.03em] text-white font-display sm:text-6xl sm:tracking-[-0.04em] xl:text-[4.5rem]"
           >
-            MAHARSH <span className="text-gradient text-[2.2em]">KEWAT</span>
+            MAHARSH <span className="text-gradient">KEWAT</span>
           </motion.h1>
 
           <motion.p
