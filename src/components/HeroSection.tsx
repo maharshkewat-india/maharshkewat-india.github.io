@@ -120,21 +120,17 @@ export default function HeroSection() {
           initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.65, delay: 0.22 }}
-          className="relative isolate mx-auto w-full max-w-[17rem] min-w-0 sm:max-w-sm lg:max-w-md lg:justify-self-end"
+          className="relative mx-auto aspect-square w-full max-w-[15rem] min-w-0 sm:max-w-[18rem] lg:max-w-[20rem] lg:justify-self-end"
         >
-          <div aria-hidden="true" className="absolute -inset-7 -z-10 rounded-full bg-cyan-300/[0.06] blur-3xl" />
-          <div aria-hidden="true" className="absolute -inset-2 rounded-full border-2 border-cyan-300/25" />
-          <div aria-hidden="true" className="absolute -inset-6 rounded-full border border-cyan-300/10" />
-          <div aria-hidden="true" className="absolute inset-2 rounded-full ring-1 ring-black/40" />
-
           <Image
             src={profile.profilePhoto}
             alt={`Profile photo of ${profile.name}`}
-            width={500}
-            height={500}
+            fill
+            sizes="(max-width: 639px) 15rem, (max-width: 1023px) 18rem, 20rem"
+            quality={90}
             className="
-              relative aspect-square animate-blob-float rounded-full border-2 border-cyan-200/60 bg-slate-900 object-cover object-top
-              shadow-[0_24px_60px_rgba(0,0,0,0.45)] transition-transform hover:scale-[1.03]
+              rounded-full border border-cyan-200/65 bg-slate-900 object-cover object-center
+              shadow-[0_0_18px_rgba(34,211,238,0.12),0_16px_36px_rgba(0,0,0,0.32)]
             "
             priority
           />
