@@ -26,8 +26,8 @@ export default function LabsPage() {
       </Head>
       <Navbar />
       <main className="bg-[#0B1018] pt-16">
-        <section className="section-py" aria-labelledby="labs-title">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <section className="relative overflow-x-clip border-b border-white/[0.06] bg-white/[0.01] section-py" aria-labelledby="labs-title">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <SectionHeading
               eyebrow="Cybersecurity labs"
               title="Investigation notes and case studies."
@@ -35,11 +35,13 @@ export default function LabsPage() {
               headingLevel="h1"
             />
 
-            <nav className="mt-10 grid gap-3 sm:grid-cols-3" aria-label="Cybersecurity lab case studies">
+            <nav className="mt-10 grid gap-4 sm:grid-cols-3" aria-label="Cybersecurity lab case studies">
               {cybersecurityLabs.map((lab) => (
-                <a key={lab.slug} href={`#${lab.slug}`} className="rounded-lg border border-white/10 bg-white/[0.025] p-4 transition hover:border-cyan-300/30 hover:bg-white/[0.045] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+                <a key={lab.slug} href={`#${lab.slug}`} className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0b1018]/75 p-5 shadow-lg shadow-black/10 backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-cyan-300/35 hover:bg-[#0d1620]/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+                  <span aria-hidden="true" className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/45 to-transparent opacity-70" />
                   <span className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-emerald-300">{lab.category}</span>
-                  <span className="mt-3 block font-semibold text-white">{lab.title}</span>
+                  <span className="mt-3 block text-lg font-semibold leading-6 text-white transition group-hover:text-cyan-100">{lab.title}</span>
+                  <span className="mt-4 inline-flex items-center text-xs font-semibold text-cyan-200">Open case study <span className="ml-1.5" aria-hidden="true">→</span></span>
                 </a>
               ))}
             </nav>

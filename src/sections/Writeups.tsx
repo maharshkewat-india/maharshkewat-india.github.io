@@ -4,7 +4,7 @@ import { cybersecurityLabs } from '@/data/labs';
 
 export default function Writeups() {
   return (
-    <section id="writeups" className="scroll-mt-20 border-y border-white/10 bg-white/[0.015] py-20 sm:py-28" aria-labelledby="writeups-title">
+    <section id="writeups" className="relative scroll-mt-20 overflow-x-clip border-y border-white/[0.06] bg-white/[0.01] py-20 sm:py-28" aria-labelledby="writeups-title">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Security write-ups"

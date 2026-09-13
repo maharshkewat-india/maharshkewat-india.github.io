@@ -22,11 +22,11 @@ export default function HeroSection() {
       {/* Animated background blobs */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 cyber-grid animate-blob-float opacity-60"
+        className="absolute inset-0 cyber-grid animate-blob-float opacity-35"
       />
       <div
         aria-hidden="true"
-        className="absolute left-[12%] top-24 h-56 w-56 animate-blob-float rounded-full bg-cyan-400/[0.08] blur-3xl"
+        className="absolute left-[12%] top-24 h-56 w-56 animate-blob-float rounded-full bg-cyan-400/[0.06] blur-3xl"
         style={{ animationDuration: '6s' }}
       />
       <div
@@ -53,12 +53,12 @@ export default function HeroSection() {
       </div>
 
       <div
-        className="relative mx-auto grid min-h-[640px] max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:px-8"
+        className="relative mx-auto grid min-h-[620px] max-w-7xl items-center gap-10 px-4 py-16 sm:gap-12 sm:px-6 sm:py-24 lg:min-h-[680px] lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-28"
       >
-        <div>
+        <div className="max-w-xl">
           <motion.p
             {...fadeUp(0)}
-            className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300"
+            className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300"
           >
             <span className="mr-2 text-emerald-300">●</span>
             Security operations · learning portfolio
@@ -67,35 +67,35 @@ export default function HeroSection() {
           <motion.h1
             {...fadeUp(0.1)}
             id="hero-title"
-            className="max-w-[90ch] text-3xl font-bold leading-none tracking-[-0.03em] text-white font-display sm:text-6xl sm:tracking-[-0.04em] xl:text-[4.5rem]"
+            className="max-w-[12ch] font-display text-4xl font-bold leading-[0.94] tracking-[-0.035em] text-white sm:max-w-none sm:text-6xl sm:tracking-[-0.04em] xl:text-[4.25rem]"
           >
             MAHARSH <span className="text-gradient">KEWAT</span>
           </motion.h1>
 
           <motion.p
             {...fadeUp(0.18)}
-            className="mt-6 max-w-xl text-base font-medium uppercase leading-7 tracking-[0.1em] text-cyan-100 sm:text-lg"
+            className="mt-5 max-w-xl text-base font-medium uppercase leading-7 tracking-[0.1em] text-cyan-100 sm:text-lg"
           >
             Cybersecurity Student<br className="sm:hidden" /> <span className="hidden text-slate-500 sm:inline">&</span> SOC Analyst Candidate
           </motion.p>
 
           <motion.p
             {...fadeUp(0.26)}
-            className="mt-5 max-w-xl text-base leading-7 text-slate-300"
+            className="mt-5 max-w-lg text-base leading-7 text-slate-300"
           >
             {profile.headline}
           </motion.p>
 
           <motion.p
             {...fadeUp(0.34)}
-            className="mt-5 max-w-xl text-base leading-7 text-slate-400"
+            className="mt-5 max-w-lg text-base leading-7 text-slate-400"
           >
             {profile.description}
           </motion.p>
 
           <motion.div
             {...fadeUp(0.42)}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-7 flex flex-wrap gap-3"
           >
             <Link
               href="#projects"
@@ -111,7 +111,7 @@ export default function HeroSection() {
             <ResumeButton variant="secondary" label="Download Resume" />
           </motion.div>
 
-          <motion.div {...fadeUp(0.5)} className="mt-8">
+          <motion.div {...fadeUp(0.5)} className="mt-7">
             <SocialLinks />
           </motion.div>
         </div>
@@ -120,10 +120,12 @@ export default function HeroSection() {
           initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.65, delay: 0.22 }}
-          className="relative mx-auto min-w-0 w-full max-w-sm lg:max-w-md lg:justify-self-end"
+          className="relative isolate mx-auto w-full max-w-[17rem] min-w-0 sm:max-w-sm lg:max-w-md lg:justify-self-end"
         >
-          <div className="absolute -inset-2 rounded-full border-2 border-cyan-300/20" />
-          <div className="absolute -inset-6 rounded-full border border-cyan-300/10" />
+          <div aria-hidden="true" className="absolute -inset-7 -z-10 rounded-full bg-cyan-300/[0.06] blur-3xl" />
+          <div aria-hidden="true" className="absolute -inset-2 rounded-full border-2 border-cyan-300/25" />
+          <div aria-hidden="true" className="absolute -inset-6 rounded-full border border-cyan-300/10" />
+          <div aria-hidden="true" className="absolute inset-2 rounded-full ring-1 ring-black/40" />
 
           <Image
             src={profile.profilePhoto}
@@ -131,8 +133,8 @@ export default function HeroSection() {
             width={500}
             height={500}
             className="
-              relative aspect-square animate-blob-float rounded-full border-2 border-cyan-300/30 bg-slate-900 object-cover object-top
-              shadow-2xl shadow-black/40 transition-transform hover:scale-105
+              relative aspect-square animate-blob-float rounded-full border-2 border-cyan-200/60 bg-slate-900 object-cover object-top
+              shadow-[0_24px_60px_rgba(0,0,0,0.45)] transition-transform hover:scale-[1.03]
             "
             priority
           />
