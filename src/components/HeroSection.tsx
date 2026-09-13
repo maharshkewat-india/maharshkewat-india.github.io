@@ -120,13 +120,13 @@ export default function HeroSection() {
           initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.65, delay: 0.22 }}
-          className="relative mx-auto aspect-square w-full max-w-[15rem] min-w-0 sm:max-w-[18rem] lg:max-w-[20rem] lg:justify-self-end"
+          className="relative mx-auto aspect-square w-full max-w-[15rem] min-w-0 sm:max-w-[18rem] lg:justify-self-end"
         >
           <Image
             src={profile.profilePhoto}
             alt={`Profile photo of ${profile.name}`}
             fill
-            sizes="(max-width: 639px) 15rem, (max-width: 1023px) 18rem, 20rem"
+            sizes="(max-width: 639px) 15rem, 18rem"
             quality={90}
             className="
               rounded-full border border-cyan-200/65 bg-slate-900 object-cover object-center
