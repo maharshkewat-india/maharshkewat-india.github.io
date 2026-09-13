@@ -30,6 +30,7 @@ export default function ResumeButton({
       download={resume.pdfFileName}
       target="_blank"
       rel="noopener noreferrer"
+      tabIndex={0}
       className={`${base} ${styles}`}
       whileHover={reduceMotion ? undefined : { y: -2 }}
       whileTap={reduceMotion ? undefined : { scale: 0.97 }}

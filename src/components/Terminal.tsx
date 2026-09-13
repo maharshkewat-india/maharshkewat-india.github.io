@@ -18,11 +18,11 @@ export default function Terminal() {
 
   return (
     <motion.div
-      initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
-      className="relative rounded-xl border border-cyan-300/20 bg-[#08111b]/80 shadow-[0_20px_80px_rgba(0,0,0,0.35)]"
+      className="relative min-w-0 max-w-full overflow-hidden rounded-xl border border-cyan-300/20 bg-[#08111b]/80 shadow-[0_20px_80px_rgba(0,0,0,0.35)]"
     >
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-rose-400" />
@@ -34,9 +34,9 @@ export default function Terminal() {
         <span className="text-slate-500">:</span>
         <span className="text-cyan-300">~</span>
         <span className="text-slate-500">$ </span>
-        <span className="inline-flex">
+        <span className="inline-flex max-w-full flex-wrap break-all align-bottom">
           {command.split('').map((char, i) => (
-            <motion.span key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={reduceMotion ? {} : variants}>
+            <motion.span key={i} custom={i} initial={false} whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={reduceMotion ? {} : variants}>
               {char}
             </motion.span>
           ))}

@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Terminal from '@/components/Terminal';
 import SectionHeading from '@/components/SectionHeading';
 import { profile } from '@/data/profile';
@@ -11,14 +11,12 @@ const metaItems = [
 ] as const;
 
 export default function About() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section id="about" className="scroll-mt-20 section-py" aria-labelledby="about-title">
+    <section id="about" className="scroll-mt-20 section-py overflow-x-clip" aria-labelledby="about-title">
       <div className="container-max">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
@@ -36,7 +34,7 @@ export default function About() {
               {metaItems.map(([label, value], index) => (
                 <motion.div
                   key={label}
-                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  initial={false}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.4, delay: 0.1 + index * 0.06 }}
@@ -54,10 +52,11 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0, x: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.55, delay: 0.15 }}
+            className="min-w-0"
           >
             <Terminal />
           </motion.div>

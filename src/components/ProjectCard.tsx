@@ -7,7 +7,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <motion.article
-      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={reduceMotion ? undefined : { y: -4 }}
       viewport={{ once: true, amount: 0.12 }}

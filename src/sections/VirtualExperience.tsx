@@ -22,7 +22,7 @@ export default function VirtualExperience() {
               <p className="mt-2 text-sm text-slate-400">{simulation.focus}</p>
               <button type="button" onClick={() => setExpandedExperience(isExpanded ? null : simulation.title)} aria-expanded={isExpanded} className="mt-5 self-start rounded-md border border-cyan-300/35 px-3 py-2 text-xs font-semibold text-cyan-100 transition hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">{isExpanded ? 'Hide Details' : 'View Details'}</button>
               <AnimatePresence initial={false}>
-                {isExpanded && <motion.div initial={reduceMotion ? false : { opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={reduceMotion ? undefined : { opacity: 0, height: 0 }} className="overflow-hidden">
+                {isExpanded && <motion.div initial={false} animate={{ opacity: 1, height: 'auto' }} exit={reduceMotion ? undefined : { opacity: 0, height: 0 }} className="overflow-hidden">
                   <div className="mt-5 flex flex-wrap gap-2">{simulation.skills.map((skill) => <span key={skill} className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-slate-300">{skill}</span>)}</div>
                   {simulation.url && <a href={simulation.url} target="_blank" rel="noreferrer" className="mt-5 block text-sm font-semibold text-cyan-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Show credential ↗<span className="sr-only"> (opens in a new tab)</span></a>}
                 </motion.div>}

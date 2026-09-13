@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar';
 import SectionHeading from '@/components/SectionHeading';
 import { projects, Project } from '@/data/projects';
 import { profile } from '@/data/profile';
+import { resume } from '@/data/resume';
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -25,8 +26,17 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
   return (
     <>
       <Head>
-        <title>{`${project.title} - ${profile.name}`}</title>
+        <title>{`${project.title} | ${profile.name}`}</title>
         <meta name="description" content={project.description} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${project.title} | ${profile.name}`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:url" content={`${resume.contact.portfolio}/projects/${project.slug}`} />
+        <meta property="og:site_name" content={`${profile.name} | Cybersecurity Portfolio`} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={`${project.title} | ${profile.name}`} />
+        <meta name="twitter:description" content={project.description} />
+        <link rel="canonical" href={`${resume.contact.portfolio}/projects/${project.slug}`} />
       </Head>
       <Navbar />
       <main className="bg-[#0B1018] pt-24">
@@ -40,6 +50,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
               eyebrow={project.category}
               title={project.title}
               description={project.description}
+              headingLevel="h1"
             />
 
             <div className="mt-12 rounded-xl border border-white/10 bg-white/[0.025] p-6 sm:p-8">

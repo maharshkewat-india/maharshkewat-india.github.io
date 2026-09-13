@@ -5,19 +5,32 @@ import ResumeButton from '@/components/ResumeButton';
 import { profile } from '@/data/profile';
 
 export default function ContactSection() {
-  const [status, setStatus] = useState({
-    submitting: false,
-    succeeded: false,
-    error: null as string | null,
-  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setStatus({ submitting: true, succeeded: false, error: null });
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const requiredFields = ['name', 'email', 'subject', 'message'] as const;
+    const missingField = requiredFields.find((field) => {
+      const value = formData.get(field);
+      return typeof value !== 'string' || value.trim().length === 0;
+    });
+
+    if (missingField || !form.checkValidity()) {
+      setStatus('error');
+      setError(missingField ? 'Please complete all required fields before sending your message.' : 'Please enter a valid email address.');
+      form.reportValidity();
+      const invalidElement = form.elements.namedItem(missingField ?? 'email');
+      if (invalidElement instanceof HTMLElement) invalidElement.focus();
+      return;
+    }
+
+    setStatus('submitting');
+    setError(null);
 
     try {
-      // IMPORTANT: Replace "YOUR_FORM_ID" with your actual Formspree form ID
       const response = await fetch('https://formspree.io/f/xqpzyjdp', {
         method: 'POST',
         body: formData,
@@ -27,15 +40,17 @@ export default function ContactSection() {
       });
 
       if (response.ok) {
-        setStatus({ submitting: false, succeeded: true, error: null });
-        (event.target as HTMLFormElement).reset();
+        setStatus('success');
+        form.reset();
       } else {
-        const data = await response.json();
-        const errorMessage = data.errors?.map((e: { message: string }) => e.message).join(', ') || 'Something went wrong. Please try again.';
-        setStatus({ submitting: false, succeeded: false, error: errorMessage });
+        const data = await response.json().catch(() => null) as { errors?: { message: string }[] } | null;
+        const errorMessage = data?.errors?.map((item) => item.message).join(', ') || 'The message could not be sent. Please try again.';
+        setStatus('error');
+        setError(errorMessage);
       }
-    } catch (error) {
-      setStatus({ submitting: false, succeeded: false, error: 'An unexpected error occurred. Please check your network connection.' });
+    } catch {
+      setStatus('error');
+      setError('The message could not be sent. Please check your network connection and try again.');
     }
   };
 
@@ -52,21 +67,22 @@ export default function ContactSection() {
         <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-8">
           {/* Contact Form */}
           <div className="rounded-xl border border-white/10 bg-white/[0.025] p-8 shadow-lg shadow-black/10">
-            {status.succeeded ? (
-              <div className="flex h-full flex-col items-center justify-center text-center">
+            {status === 'success' ? (
+              <div className="flex h-full flex-col items-center justify-center text-center" role="status" aria-live="polite">
                 <h3 className="font-mono text-lg font-semibold uppercase tracking-[0.1em] text-cyan-300">Message Sent!</h3>
                 <p className="mt-4 text-slate-300">Thank you for reaching out. I&apos;ll get back to you as soon as possible.</p>
               </div>
             ) : (
               <>
                 <h3 className="mb-6 font-mono text-lg font-semibold uppercase tracking-[0.1em] text-cyan-300">Send a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" aria-describedby={error ? 'contact-form-error' : undefined}>
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-slate-300">Name</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
+                      autoComplete="name"
                       className="mt-1 block w-full rounded-md border border-slate-600/70 bg-[#06080d] px-4 py-2 text-slate-100 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                       required
                     />
@@ -77,6 +93,7 @@ export default function ContactSection() {
                       type="email"
                       id="email"
                       name="email"
+                      autoComplete="email"
                       className="mt-1 block w-full rounded-md border border-slate-600/70 bg-[#06080d] px-4 py-2 text-slate-100 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                       required
                     />
@@ -87,6 +104,7 @@ export default function ContactSection() {
                       type="text"
                       id="subject"
                       name="subject"
+                      autoComplete="off"
                       className="mt-1 block w-full rounded-md border border-slate-600/70 bg-[#06080d] px-4 py-2 text-slate-100 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                       required
                     />
@@ -103,12 +121,12 @@ export default function ContactSection() {
                   </div>
                   <button
                     type="submit"
-                    disabled={status.submitting}
+                    disabled={status === 'submitting'}
                     className="inline-flex justify-center rounded-md border border-transparent bg-cyan-300 px-6 py-3 text-base font-bold text-[#061018] shadow-sm transition hover:bg-cyan-200 focus:outline-none focus:ring-2 focus:ring-cyan-100 focus:ring-offset-2 focus:ring-offset-[#06080d] disabled:cursor-not-allowed disabled:bg-cyan-300/50"
                   >
-                    {status.submitting ? 'Sending...' : 'Send Message'}
+                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
                   </button>
-                  {status.error && <p className="mt-4 text-sm text-rose-400">{status.error}</p>}
+                  {error && <p id="contact-form-error" className="mt-4 text-sm text-rose-400" role="alert" aria-live="assertive">{error}</p>}
                 </form>
               </>
             )}

@@ -33,7 +33,7 @@ export default function SkillsSection() {
             <motion.article
               key={category.name}
               layout={!reduceMotion}
-              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -58,11 +58,11 @@ export default function SkillsSection() {
 
         {/* Skill evidence */}
         <AnimatePresence initial={false}>
-        {showMore && <motion.div initial={reduceMotion ? false : { opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={reduceMotion ? undefined : { opacity: 0, height: 0 }} className="mt-10 grid gap-4 overflow-hidden lg:grid-cols-2">
+        {showMore && <motion.div initial={false} animate={{ opacity: 1, height: 'auto' }} exit={reduceMotion ? undefined : { opacity: 0, height: 0 }} className="mt-10 grid gap-4 overflow-hidden lg:grid-cols-2">
           {skillEvidence.map((item, evIndex) => (
             <motion.article
               key={item.skill}
-              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.12 }}
               transition={{ duration: 0.4, delay: 0.3 + evIndex * 0.06 }}

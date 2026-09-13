@@ -16,11 +16,16 @@ export const profile = {
 
 // Navigation items for the header and footer
 export const navItems = [
-  { href: '#about', label: 'ABOUT' },
-  { href: '#skills', label: 'SKILLS' },
-  { href: '#projects', label: 'PROJECTS' },
-  { href: '#experience', label: 'EXPERIENCE' },
-  { href: '#certifications', label: 'CERTIFICATIONS' },
-  { href: '#resume', label: 'RESUME' },
-  { href: '#contact', label: 'CONTACT' },
+  { href: '/#about', label: 'ABOUT' },
+  { href: '/#skills', label: 'SKILLS' },
+  { href: '/#projects', label: 'PROJECTS' },
+  { href: '/labs', label: 'LABS' },
+  { href: '/#writeups', label: 'WRITE-UPS' },
+  { href: '/#achievements', label: 'ACHIEVEMENTS' },
+  { href: '/#opportunities', label: 'OPPORTUNITIES' },
+  { href: '/#github', label: 'GITHUB' },
+  { href: '/#experience', label: 'EXPERIENCE' },
+  { href: '/#certifications', label: 'CERTIFICATIONS' },
+  { href: '/#resume', label: 'RESUME' },
+  { href: '/#contact', label: 'CONTACT' },
 ];
