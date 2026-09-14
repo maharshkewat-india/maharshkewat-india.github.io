@@ -14,8 +14,11 @@ export default function AchievementCard({ activity }: { activity: AchievementAct
       transition={{ duration: 0.35 }}
       className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/[0.025] p-5 shadow-lg shadow-black/10 transition hover:border-cyan-300/30 hover:bg-white/[0.045] sm:p-6"
     >
-      <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-cyan-300">{activity.category}</p>
-      <h3 className="mt-5 text-xl font-semibold text-white">{activity.title}</h3>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-cyan-300">{activity.category}</p>
+        <span className="rounded-full border border-emerald-300/25 bg-emerald-300/[0.06] px-2.5 py-1 font-mono text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-emerald-200">Publicly documented</span>
+      </div>
+      <h3 className="mt-4 text-xl font-semibold text-white">{activity.title}</h3>
       <p className="mt-3 leading-6 text-slate-400">{activity.description}</p>
       <div className="mt-5 flex flex-wrap gap-2">
         {activity.topics.map((topic) => (
@@ -26,7 +29,7 @@ export default function AchievementCard({ activity }: { activity: AchievementAct
       </div>
       <div className="mt-auto pt-7">
         <a href={activity.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md border border-cyan-300/35 px-4 py-2.5 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
-          [{activity.sourceLabel}] <span className="ml-2" aria-hidden="true">↗</span>
+          View on {activity.sourceLabel} <span className="ml-2" aria-hidden="true">↗</span>
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
       </div>

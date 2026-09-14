@@ -3,7 +3,6 @@ import Footer from '@/components/Footer';
 import Hero from '@/components/HeroSection';
 import Navbar from '@/components/Navbar';
 import About from '@/sections/About';
-import Achievements from '@/sections/Achievements';
 import Certifications from '@/sections/Certifications';
 import ContactSection from '@/sections/Contact';
 import Education from '@/sections/Education';
@@ -54,7 +53,6 @@ export default function Home() {
         <SecurityFocus />
         <ProjectsSection />
         <Writeups />
-        <Achievements />
         <SOCJourney />
         <DigitalForensics />
         <AISecurity />
